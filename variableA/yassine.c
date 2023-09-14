@@ -1,32 +1,17 @@
 #include<stdio.h>
-#include<stdlib.h>
-#include<math.h>
-int main(void){
-int a,b;
-float nouhaila;
-double c;
-char oper;
-printf("Donner la valeur du premier nombre\t");
-scanf("%d",&a);
-printf("Donner le valeur de deuxieme nombre\t");
-scanf("%d",&b);
-printf("Donner l operation a utiliser\t");
-scanf(" %c",&oper);
-switch(oper){
-case '+':printf("%d + %d = %d",a,b,a+b);
-break;
-case '-': printf("%d -%d = %d",a,b,a-b);
-break;
-case '*': printf("%d * %d =%d",a,b,a*b);
-break;
-case '/' :if(b==0){
-printf("math erreur");
-}else{
-printf("%d / %d = %d",a,b,a/b);
-}
-break;
-case '%' : printf("%d modulo  %d = %d",a,b,a%b);
-break;
-default : printf("operation non disponible");
-}
+#include<stdbool.h>
+
+int main(){
+int age=22;
+float poid=77.5;
+char nom[]="bouaquil";
+char prenom[]="yassine";
+bool est_vrai=true;
+printf("\nnom=%s  ,prenom=%s  \n",nom,prenom);
+printf("age=%d  ,poid=%.2f\n",age,poid);
+if(est_vrai)
+printf("true\n");
+else
+printf("false\n");
+
 }
