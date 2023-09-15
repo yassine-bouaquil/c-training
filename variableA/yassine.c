@@ -3,6 +3,8 @@
 #include<math.h>
 int main(void){
 int a,b;
+float nouhaila;
+double c;
 char oper;
 printf("Donner la valeur du premier nombre\t");
 scanf("%d",&a);

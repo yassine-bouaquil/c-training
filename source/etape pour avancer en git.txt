@@ -1,0 +1,15 @@
+Upload:
+git add .
+git commit -m "msg"
+git push
+
+Download:
+git fetch
+git pull
+
+Command Linux:
+Navigation: cd <dir>
+Copy/Past: cp <file/folder> <path>
+List files/folders: ls
+
+Token:

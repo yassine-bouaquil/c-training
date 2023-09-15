@@ -1,0 +1,63 @@
+Git est un système de contrôle de version largement utilisé pour suivre les modifications apportées au code source lors du développement logiciel. Voici une liste des commandes Git courantes, ainsi que leur rôle dans un environnement Linux :
+
+1. **git init** :
+   - **Rôle** : Initialise un nouveau dépôt Git dans le répertoire actuel.
+
+2. **git clone** :
+   - **Rôle** : Crée une copie d'un dépôt Git distant sur votre machine locale.
+
+3. **git add** :
+   - **Rôle** : Stade les modifications pour la validation. Vous spécifiez les fichiers ou répertoires que vous souhaitez inclure dans la prochaine validation.
+
+4. **git commit** :
+   - **Rôle** : Enregistre les modifications mises en scène dans le dépôt avec un message de validation descriptif.
+
+5. **git status** :
+   - **Rôle** : Affiche l'état de votre répertoire de travail, indiquant quels fichiers sont modifiés, mis en scène ou non suivis.
+
+6. **git diff** :
+   - **Rôle** : Affiche les différences entre le répertoire de travail et la dernière version validée.
+
+7. **git log** :
+   - **Rôle** : Affiche l'historique des validations, y compris les messages de validation, les auteurs et les horodatages.
+
+8. **git branch** :
+   - **Rôle** : Liste toutes les branches locales dans votre dépôt Git.
+
+9. **git checkout** :
+   - **Rôle** : Permet de passer entre différentes branches ou validations dans le dépôt.
+
+10. **git merge** :
+    - **Rôle** : Combine les modifications d'une branche dans une autre, souvent utilisée pour intégrer des branches de fonction dans la branche principale.
+
+11. **git pull** :
+    - **Rôle** : Récupère les modifications d'un dépôt distant et les fusionne dans votre branche actuelle.
+
+12. **git push** :
+    - **Rôle** : Pousse vos validations locales vers un dépôt distant.
+
+13. **git remote** :
+    - **Rôle** : Liste les dépôts distants que votre dépôt local connaît.
+
+14. **git fetch** :
+    - **Rôle** : Récupère les modifications d'un dépôt distant sans les fusionner.
+
+15. **git stash** :
+    - **Rôle** : Sauve temporairement les modifications qui ne sont pas prêtes pour une validation, vous permettant de passer entre les branches ou d'appliquer les modifications ultérieurement.
+
+16. **git tag** :
+    - **Rôle** : Crée, liste ou supprime des balises, souvent utilisées pour marquer des points spécifiques dans l'historique des validations (par exemple, les versions).
+
+17. **git reset** :
+    - **Rôle** : Annule la mise en scène des modifications ou réinitialise la branche actuelle à une validation spécifique.
+
+18. **git rebase** :
+    - **Rôle** : Réapplique les validations d'une branche à une autre, souvent utilisé pour nettoyer l'historique d'une branche.
+
+19. **git fetch** :
+    - **Rôle** : Récupère les modifications d'un dépôt distant sans les fusionner.
+
+20. **git blame** :
+    - **Rôle** : Montre qui a modifié pour la dernière fois chaque ligne d'un fichier, permettant d'identifier l'auteur de modifications spécifiques.
+
+Ce sont quelques-unes des commandes Git les plus couramment utilisées dans un environnement Linux. Vous pouvez obtenir des informations détaillées sur chaque commande et ses options en utilisant la commande `git --help` ou en vous référant à la documentation officielle de Git (`git help <commande>` ou `man git-<commande>` sous Linux).
