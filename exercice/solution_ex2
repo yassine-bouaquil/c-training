@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <string.h>
+
+// Structure pour représenter un contact
+struct Contact {
+    char nom[50];
+    char numero[15];
+};
+
+// Fonction pour ajouter un contact à la liste
+void ajouterContact(struct Contact liste[], int *nombreContacts) {
+    if (*nombreContacts < 100) {
+        printf("Entrez le nom du contact : ");
+        scanf("%s", liste[*nombreContacts].nom);
+
+        printf("Entrez le numéro de téléphone : ");
+        scanf("%s", liste[*nombreContacts].numero);
+
+        (*nombreContacts)++;
+        printf("Le contact a été ajouté avec succès.\n");
+    } else {
+        printf("La liste de contacts est pleine. Impossible d'ajouter plus de contacts.\n");
+    }
+}
+
+// Fonction pour afficher la liste de contacts
+void afficherContacts(struct Contact liste[], int nombreContacts) {
+    printf("Liste de contacts :\n");
+    for (int i = 0; i < nombreContacts; i++) {
+        printf("Nom : %s, Numéro de téléphone : %s\n", liste[i].nom, liste[i].numero);
+    }
+}
+
+int main() {
+    int choix;
+    int nombreContacts = 0;
+    struct Contact listeContacts[100]; // Tableau pour stocker les contacts
+
+    do {
+        printf("\nMenu :\n");
+        printf("1. Ajouter un contact\n");
+        printf("2. Afficher la liste de contacts\n");
+        printf("3. Quitter\n");
+        printf("Entrez votre choix : ");
+        scanf("%d", &choix);
+
+        switch (choix) {
+            case 1: // Ajouter un contact
+                ajouterContact(listeContacts, &nombreContacts);
+                break;
+            case 2: // Afficher la liste de contacts
+                afficherContacts(listeContacts, nombreContacts);
+                break;
+            case 3: // Quitter le programme
+                printf("Programme terminé.\n");
+                break;
+            default:
+                printf("Choix invalide. Veuillez réessayer.\n");
+        }
+    } while (choix != 3);
+
+    return 0;
+}

@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <string.h>
+
+// Structure pour représenter une tâche
+struct Task {
+    char description[100];
+    int priorite;
+};
+
+// Fonction pour ajouter une tâche à la liste
+void ajouterTache(struct Task liste[], int *nombreTaches) {
+    if (*nombreTaches < 100) {
+        printf("Entrez la description de la tâche : ");
+        scanf(" %[^\n]", liste[*nombreTaches].description);
+
+        printf("Entrez la priorité de la tâche (1 - faible, 2 - moyenne, 3 - élevée) : ");
+        scanf("%d", &liste[*nombreTaches].priorite);
+
+        (*nombreTaches)++;
+        printf("La tâche a été ajoutée avec succès.\n");
+    } else {
+        printf("La liste de tâches est pleine. Impossible d'ajouter plus de tâches.\n");
+    }
+}
+
+// Fonction pour afficher la liste des tâches
+void afficherTaches(struct Task liste[], int nombreTaches) {
+    printf("Liste des tâches :\n");
+    for (int i = 0; i < nombreTaches; i++) {
+        printf("Description : %s, Priorité : %d\n", liste[i].description, liste[i].priorite);
+    }
+}
+
+int main() {
+    int choix;
+    int nombreTaches = 0;
+    struct Task listeTaches[100]; // Tableau pour stocker les tâches
+
+    do {
+        printf("\nMenu :\n");
+        printf("1. Ajouter une tâche\n");
+        printf("2. Afficher la liste des tâches\n");
+        printf("3. Quitter\n");
+        printf("Entrez votre choix : ");
+        scanf("%d", &choix);
+
+        switch (choix) {
+            case 1: // Ajouter une tâche
+                ajouterTache(listeTaches, &nombreTaches);
+                break;
+            case 2: // Afficher la liste des tâches
+                afficherTaches(listeTaches, nombreTaches);
+                break;
+            case 3: // Quitter le programme
+                printf("Programme terminé.\n");
+                break;
+            default:
+                printf("Choix invalide. Veuillez réessayer.\n");
+        }
+    } while (choix != 3);
+
+    return 0;
+}
