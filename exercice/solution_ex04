@@ -1,0 +1,67 @@
+#include <stdio.h>
+#include <string.h>
+
+// Structure pour représenter un produit
+struct Produit {
+    int code;
+    char nom[50];
+    float prix;
+};
+
+// Fonction pour ajouter un produit à la liste
+void ajouterProduit(struct Produit *inventaire, int *nombreProduits) {
+    if (*nombreProduits < 100) {
+        printf("Entrez le code du produit : ");
+        scanf("%d", &inventaire[*nombreProduits].code);
+
+        printf("Entrez le nom du produit : ");
+        scanf(" %[^\n]", inventaire[*nombreProduits].nom);
+
+        printf("Entrez le prix du produit : ");
+        scanf("%f", &inventaire[*nombreProduits].prix);
+
+        (*nombreProduits)++;
+        printf("Le produit a été ajouté avec succès.\n");
+    } else {
+        printf("L'inventaire est plein. Impossible d'ajouter plus de produits.\n");
+    }
+}
+
+// Fonction pour afficher la liste des produits
+void afficherInventaire(struct Produit *inventaire, int nombreProduits) {
+    printf("Inventaire des produits :\n");
+    for (int i = 0; i < nombreProduits; i++) {
+        printf("Code : %d, Nom : %s, Prix : %.2f\n", inventaire[i].code, inventaire[i].nom, inventaire[i].prix);
+    }
+}
+
+int main() {
+    int choix;
+    int nombreProduits = 0;
+    struct Produit inventaireProduits[100]; // Tableau pour stocker les produits
+
+    do {
+        printf("\nMenu :\n");
+        printf("1. Ajouter un produit\n");
+        printf("2. Afficher l'inventaire des produits\n");
+        printf("3. Quitter\n");
+        printf("Entrez votre choix : ");
+        scanf("%d", &choix);
+
+        switch (choix) {
+            case 1: // Ajouter un produit
+                ajouterProduit(inventaireProduits, &nombreProduits);
+                break;
+            case 2: // Afficher l'inventaire des produits
+                afficherInventaire(inventaireProduits, nombreProduits);
+                break;
+            case 3: // Quitter le programme
+                printf("Programme terminé.\n");
+                break;
+            default:
+                printf("Choix invalide. Veuillez réessayer.\n");
+        }
+    } while (choix != 3);
+
+    return 0;
+}

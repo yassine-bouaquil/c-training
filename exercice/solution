@@ -1,0 +1,88 @@
+#include <stdio.h>
+#include <string.h>
+
+// Structure pour représenter un étudiant
+struct Etudiant {
+    int id;
+    char nom[50];
+    int age;
+};
+
+// Fonction pour trier les étudiants par nom en utilisant le tri à bulles
+void trierEtudiantsParNom(struct Etudiant liste[], int taille) {
+    struct Etudiant temp;
+    int i, j;
+
+    for (i = 0; i < taille - 1; i++) {
+        for (j = 0; j < taille - i - 1; j++) {
+            if (strcmp(liste[j].nom, liste[j + 1].nom) > 0) {
+                temp = liste[j];
+                liste[j] = liste[j + 1];
+                liste[j + 1] = temp;
+            }
+        }
+    }
+}
+
+// Fonction pour rechercher un étudiant par nom
+int rechercherEtudiantParNom(struct Etudiant liste[], int taille, char nomRecherche[]) {
+    for (int i = 0; i < taille; i++) {
+        if (strcmp(liste[i].nom, nomRecherche) == 0) {
+            return i;
+        }
+    }
+    return -1; // Retourne -1 si l'étudiant n'est pas trouvé
+}
+
+int main() {
+    int choix;
+    int nombreEtudiants = 0;
+    struct Etudiant listeEtudiants[100]; // Tableau pour stocker les étudiants
+
+    do {
+        printf("\nMenu :\n");
+        printf("1. Ajouter un étudiant\n");
+        printf("2. Trier les étudiants par nom\n");
+        printf("3. Rechercher un étudiant par nom\n");
+        printf("4. Quitter\n");
+        printf("Entrez votre choix : ");
+        scanf("%d", &choix);
+
+        switch (choix) {
+            case 1: // Ajouter un étudiant
+                printf("Entrez l'ID de l'étudiant : ");
+                scanf("%d", &listeEtudiants[nombreEtudiants].id);
+
+                printf("Entrez le nom de l'étudiant : ");
+                scanf("%s", listeEtudiants[nombreEtudiants].nom);
+
+                printf("Entrez l'âge de l'étudiant : ");
+                scanf("%d", &listeEtudiants[nombreEtudiants].age);
+
+                nombreEtudiants++;
+                break;
+            case 2: // Trier les étudiants par nom
+                trierEtudiantsParNom(listeEtudiants, nombreEtudiants);
+                printf("Les étudiants ont été triés par nom.\n");
+                break;
+            case 3: // Rechercher un étudiant par nom
+                char nomRecherche[50];
+                printf("Entrez le nom de l'étudiant à rechercher : ");
+                scanf("%s", nomRecherche);
+                int index = rechercherEtudiantParNom(listeEtudiants, nombreEtudiants, nomRecherche);
+                if (index != -1) {
+                    printf("Étudiant trouvé - ID : %d, Âge : %d\n", listeEtudiants[index].id, listeEtudiants[index].age);
+                } else {
+                    printf("Étudiant non trouvé.\n");
+                }
+                break;
+            case 4: // Quitter le programme
+                printf("Programme terminé.\n");
+                break;
+            default:
+                printf("Choix invalide. Veuillez réessayer.\n");
+        }
+    } while (choix != 4);
+
+    return 0;
+}
