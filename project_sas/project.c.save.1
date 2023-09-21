@@ -113,6 +113,25 @@ int main (){
         printf("La liste de taches est pleine. Impossible d'ajouter plus de taches.\n");
     }
 
+void addplusieurtasks() {
+    int numtaskstoAdd;
+    printf("Combien de taches souhaitez-vous ajouter ? ");
+    scanf("%d", &numtaskstoAdd);
+
+    for (int i = 0; i < numtaskstoAdd; i++) {
+        printf("\ntache %d :\n", i + 1);
+        addTask(); // Appelle la fonction pour ajouter une nouvelle tâche
+    }
+    printf("%d taches ajoutées avec succes!\n", numtaskstoAdd);
+
+
+
+
+
+
+
+
+}
 
 
 
