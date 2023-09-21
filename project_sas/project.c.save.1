@@ -1,4 +1,4 @@
-include <stdio.h>
+#include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -16,7 +16,7 @@ include <stdio.h>
 struct task tasklist [800];
         int  task_count= 0;
  
-void affichermenu{ 
+void affichermenu(){ 
         printf("\n.........................menu:.............................\n");
         printf("1-  ajouter une nouvelle tache \n");
         printf("2-  ajouter plusieur nouvelles taches\n");
@@ -95,4 +95,4 @@ int main (){
 
 
 
-}
+
