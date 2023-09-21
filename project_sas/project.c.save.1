@@ -86,6 +86,32 @@ int main (){
     return 0;
 }
 
+ void addtask() {
+	if (task_count< 800) {
+	struct task nouveltask
+	nouveltask.id = task_count +1;
+	
+	printf("nom de  tache : ");
+	scanf(" %[^\n]" ,nouveltask.titre);
+
+	printf("description de tache : ");
+	scanf(" %[^\n]" ,nouveltask.description);
+
+	printf("description de tache : ");
+        scanf(" %[^\n]" ,nouveltask.description);
+ 	
+	printf("Date limite (YYYY-MM-DD) : ");
+        scanf(" %[^\n]", nouveltask.deadline);
+
+        printf("Statut (à réaliser/en cours de réalisation/finalisée) : ");
+        scanf(" %[^\n]", nouveltask.status);
+
+        taskList[task_count] = nouveltask;
+        task_count++;
+        printf("Tache ajoutee avec succes.\n");
+    } else {
+        printf("La liste de taches est pleine. Impossible d'ajouter plus de taches.\n");
+    }
 
 
 
@@ -95,4 +121,4 @@ int main (){
 
 
 
-
+}
