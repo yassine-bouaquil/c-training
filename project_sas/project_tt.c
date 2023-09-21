@@ -42,16 +42,16 @@ int main (){
 	scanf("%d" , &choix);
  	switch (choix) {
 	case 1:
-// ajouter une nouvelle tache
+        addtask();
 	break;
 	case 2:
 // ajouter plusieurs nouvelles tâches 
 	break;
 	case 3:
-// afficher la liste de toutes les tâches
+        affichetasks();
 	break;
 	case 4:
-//  trier les tâches par titre ici
+        sorttasksbyTitre();
                 break;
             case 5:
 //  trier les tâches par deadline ici
@@ -112,9 +112,25 @@ int main (){
     } else {
         printf("La liste de taches est pleine. Impossible d'ajouter plus de taches.\n");
     }
-    
-    
-void afficherasks() {
+ }  
+ 
+
+
+void sorttasksbyTitre() {
+    for (int i = 0; i < task_count - 1; i++) {
+        for (int j = 0; j < task_count - i - 1; j++) {
+            if (strcmp(taskList[j].titre, taskList[j + 1].titre) > 0) {
+                // Swap tasks
+                struct task temp = taskList[j]; // Utilisez struct task ici
+                taskList[j] = taskList[j + 1];
+                taskList[j + 1] = temp;
+            }
+        }
+    }
+}
+
+
+void affichetasks() {
     if (task_count == 0) {
         printf("Aucune tache enregistrée pour le moment.\n");
         return;
@@ -130,12 +146,3 @@ void afficherasks() {
         printf("-----------------------------\n");
     }
 }
-
-    
-    
-    
-    
-    
-    
-    
- }
