@@ -200,4 +200,3 @@ void rechercherpartitre() {
 
     printf("Aucune tache avec ce titre n'a été trouvée.\n");
 }
-
