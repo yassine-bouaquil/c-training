@@ -36,7 +36,7 @@ int main() {
 
     while (1) {
         affichermenu();
-        printf("Choisissez votre opération : ");
+        printf("Choisissez votre operation : ");
         scanf("%d", &choix);
 
         switch (choix) {
@@ -71,19 +71,19 @@ int main() {
                 afficherStatistiques();
                 break;
             case 11:
-                printf("Êtes-vous sûr de vouloir quitter ? (Oui/Non) : ");
+                printf("Etes-vous sur de vouloir quitter ? (Oui/Non) : ");
                 char reponse[3];
                 scanf(" %2s", reponse);
                 if (strcasecmp(reponse, "Oui") == 0 || strcasecmp(reponse, "Yes") == 0) {
                     printf("Merci !\n");
                     exit(0);
-                    // return 0; 
+                   
                 } else {
-                    printf("Opération annulée.\n");
+                    printf("Operation annulée.\n");
                 }
                 break;
             default:
-                printf("Choix invalide. Veuillez entrer un numéro valide.\n");
+                printf("Choix invalide. Veuillez entrer un numero valide.\n");
         }
     }
 
@@ -104,7 +104,7 @@ void addtask() {
         printf("Date limite (YYYY-MM-DD) : ");
         scanf(" %[^\n]", nouveltask.deadline);
 
-        printf("Statut (à réaliser/en cours de réalisation/finalisée) : ");
+        printf("Statut (à realiser/en cours de realisation/finalisee) : ");
         scanf(" %[^\n]", nouveltask.status);
 
         taskList[task_count] = nouveltask;
@@ -146,7 +146,7 @@ void sorttasksbyTitre() {
 
 void affichetasks() {
     if (task_count == 0) {
-        printf("Aucune tache enregistrée pour le moment.\n");
+        printf("Aucune tache enregistree pour le moment.\n");
        
     }
 
@@ -163,12 +163,12 @@ void affichetasks() {
 
 void rechercherTacheParIdentifiant() {
     int idRecherche;
-    printf("Entrez l'identifiant de la tâche que vous souhaitez rechercher : ");
+    printf("Entrez l'identifiant de la tache que vous souhaitez rechercher : ");
     scanf("%d", &idRecherche);
 
     for (int i = 0; i < task_count; i++) {
         if (taskList[i].id == idRecherche) {
-            printf("Tâche trouvée :\n");
+            printf("Tache trouvee :\n");
             printf("ID : %d\n", taskList[i].id);
             printf("Titre : %s\n", taskList[i].titre);
             printf("Description : %s\n", taskList[i].description);
@@ -178,15 +178,15 @@ void rechercherTacheParIdentifiant() {
         }
     }
 
-    printf("Aucune tâche avec cet identifiant n'a été trouvée.\n");
+    printf("Aucune tache avec cet identifiant n a ete trouvee.\n");
 }
 
 void rechercherTacheParTitre() {
     char titreRecherche[300];
-    printf("Entrez le titre de la tâche que vous souhaitez rechercher : ");
+    printf("Entrez le titre de la tache que vous souhaitez rechercher : ");
     scanf(" %[^\n]", &titreRecherche);
 
-    printf("Tâches trouvées par titre :\n");
+    printf("Taches trouvees par titre :\n");
 
     for (int i = 0; i < task_count; i++) {
         if (strcmp(taskList[i].titre, titreRecherche) == 0) {
@@ -202,43 +202,43 @@ void rechercherTacheParTitre() {
 
 void modifierTache() {
     int idModification;
-    printf("Entrez l'identifiant de la tâche que vous souhaitez modifier : ");
+    printf("Entrez l identifiant de la tache que vous souhaitez modifier : ");
     scanf("%d", &idModification);
 
     for (int i = 0; i < task_count; i++) {
         if (taskList[i].id == idModification) {
-            printf("Tâche trouvée :\n");
+            printf("Tache trouvee :\n");
             printf("ID : %d\n", taskList[i].id);
             printf("Titre : %s\n", taskList[i].titre);
 
             printf("Options de modification :\n");
             printf("1. Modifier la description\n");
             printf("2. Modifier le statut\n");
-            printf("3. Modifier le délai\n");
+            printf("3. Modifier le delai\n");
             printf("4. Annuler la modification\n");
 
             int choixModification;
-            printf("Choisissez l'option de modification : ");
+            printf("Choisissez l option de modification : ");
             scanf("%d", &choixModification);
 
             switch (choixModification) {
                 case 1:
                     printf("Nouvelle description : ");
                     scanf(" %[^\n]", taskList[i].description);
-                    printf("Description modifiée avec succès.\n");
+                    printf("Description modifiee avec succes.\n");
                     break;
                 case 2:
                     printf("Nouveau statut : ");
                     scanf(" %[^\n]", taskList[i].status);
-                    printf("Statut modifié avec succès.\n");
+                    printf("Statut modifie avec succes.\n");
                     break;
                 case 3:
-                    printf("Nouveau délai (YYYY-MM-DD) : ");
+                    printf("Nouveau delai (YYYY-MM-DD) : ");
                     scanf(" %[^\n]", taskList[i].deadline);
-                    printf("Délai modifié avec succès.\n");
+                    printf("Delai modifie avec succes.\n");
                     break;
                 case 4:
-                    printf("Modification annulée.\n");
+                    printf("Modification annulee.\n");
                     break;
                 default:
                     printf("Option de modification invalide.\n");
@@ -247,12 +247,12 @@ void modifierTache() {
         }
     }
 
-    printf("Aucune tâche avec cet identifiant n'a été trouvée.\n");
+    printf("Aucune tache avec cet identifiant n a ete trouvee.\n");
 }
 
 void supprimerTacheParIdentifiant() {
     int idSuppression;
-    printf("Entrez l'identifiant de la tâche que vous souhaitez supprimer : ");
+    printf("Entrez l identifiant de la tache que vous souhaitez supprimer : ");
     scanf("%d", &idSuppression);
 
     int indexTacheASupprimer = -1;
@@ -269,14 +269,14 @@ void supprimerTacheParIdentifiant() {
             taskList[i] = taskList[i + 1];
         }
         task_count--;
-        printf("Tâche supprimée avec succès.\n");
+        printf("Tache supprimée avec succes.\n");
     } else {
-        printf("Aucune tâche avec cet identifiant n'a été trouvée.\n");
+        printf("Aucune tache avec cet identifiant n a ete trouvee.\n");
     }
 }
 
 void afficherStatistiques() {
-    printf("Nombre total de tâches : %d\n", task_count);
+    printf("Nombre total de taches : %d\n", task_count);
 
     int tachesCompletes = 0;
     int tachesIncompletes = 0;
@@ -298,6 +298,6 @@ void afficherStatistiques() {
         }
     }
 
-    printf("Nombre de tâches complètes : %d\n", tachesCompletes);
-    printf("Nombre de tâches incomplètes : %d\n", tachesIncompletes);
+    printf("Nombre de taches completes : %d\n", tachesCompletes);
+    printf("Nombre de taches incompletes : %d\n", tachesIncompletes);
 }
